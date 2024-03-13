@@ -16,3 +16,7 @@ padding: 10px;
   align-items: center;
   width: 100%;
 }
+
+mat-toolbar{
+  background-color: rgba(178, 110, 180, 100%);
+}
