@@ -1,29 +1,39 @@
-.toolbar-username {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .flex-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .mat-column-empresa {
-    width: 5em;
-    border-right: 1px solid currentColor;
-    padding-right: 24px;
-    text-align: center;
-  }
-  .mat-column-marca {
-    width: 100%;
-  }
-  .mat-column-cnpj {
-    text-align: center;
-    min-width: 5em;
-  }
-  .mat-column-acao {
-    text-align: center;
-    min-width: 10em;
-  }
-  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#toolbar-username {
+  color: white;
+}
+
+#example-spacer {
+  flex: 1 1 auto;
+}
+
+#flex-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  background-color: #D9D9D9;
+  width: 100%;
+  margin-top: 100px;
+}
+
+button {
+  margin-left: 8px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+mat-toolbar {
+  background-color: rgba(178, 110, 180, 100%);
+}
+
+mat-icon {
+  color: #ffffff;
+}

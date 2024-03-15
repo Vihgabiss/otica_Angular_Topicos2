@@ -42,11 +42,17 @@ export class FornecedorFormComponent {
       telefone: [(fornecedor && fornecedor.telefone) ? fornecedor.telefone : '',
       Validators.required],
       email: [(fornecedor && fornecedor.email) ? fornecedor.email : '',
-      Validators.required],
+      Validators.compose([
+        Validators.required,
+        Validators.email
+      ])],
       endereco: [(fornecedor && fornecedor.endereco) ? fornecedor.endereco : '',
       Validators.required],
       cnpj: [(fornecedor && fornecedor.cnpj) ? fornecedor.cnpj : '',
-      Validators.required],
+      Validators.compose([
+        Validators.required,
+        Validators.pattern('^\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2}$')
+      ])]
 
     });
 
@@ -58,8 +64,8 @@ export class FornecedorFormComponent {
       const fornecedor = this.formGroup.value;
       if (fornecedor.id == null) {
         this.fornecedorService.insert(fornecedor).subscribe({
-          next: (estadoCadastrado) => {
-            this.router.navigateByUrl('/fornecedor');
+          next: (fornecedorCadastrado) => {
+            this.router.navigateByUrl('/fornecedores');
           },
           error: (err) => {
             console.log('Erro ao Incluir' + JSON.stringify(err));
@@ -68,26 +74,10 @@ export class FornecedorFormComponent {
       } else {
         this.fornecedorService.update(fornecedor).subscribe({
           next: (fornecedorAlterado) => {
-            this.router.navigateByUrl('/fornecedor');
+            this.router.navigateByUrl('/fornecedores');
           },
           error: (err) => {
             console.log('Erro ao Editar' + JSON.stringify(err));
-          }
-        });
-      }
-    }
-  }
-
-  excluir() {
-    if (this.formGroup.valid) {
-      const fornecedor = this.formGroup.value;
-      if (fornecedor.id != null) {
-        this.fornecedorService.delete(fornecedor).subscribe({
-          next: () => {
-            this.router.navigateByUrl('/fornecedor');
-          },
-          error: (err) => {
-            console.log('Erro ao Excluir' + JSON.stringify(err));
           }
         });
       }
@@ -102,13 +92,15 @@ export class FornecedorFormComponent {
       required: 'O telefone não pode ser nulo.'
     },
     email: {
-      required: 'O telefone não pode ser nulo.'
+      required: 'O email não pode ser nulo.',
+      email: 'Email inválido'
     },
     endereco: {
-      required: 'O telefone não pode ser nulo.'
+      required: 'O endereço não pode ser nulo.'
     },
     cnpj: {
-      required: 'O telefone não pode ser nulo.'
+      required: 'O cnpj não pode ser nulo.',
+      pattern: 'Formato de cnpj não aceito'
     }
 
   }

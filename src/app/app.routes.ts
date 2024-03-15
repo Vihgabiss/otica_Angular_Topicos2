@@ -9,7 +9,7 @@ export const routes: Routes = [
     { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados' },
     { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado' },
 
-    { path: 'fornecedor', component: FornecedorListComponent, title: 'Lista de Fornecedor' },
-    { path: 'fornecedor/new', component: FornecedorFormComponent, title: 'Novo Fornecedor' },
-    { path: 'fornecedor/edit/:id', component: FornecedorFormComponent, resolve: { fornecedor: fornecedorResolver } },
+    { path: 'fornecedores', component: FornecedorListComponent, title: 'Lista de Fornecedor' },
+    { path: 'fornecedores/new', component: FornecedorFormComponent, title: 'Novo Fornecedor' },
+    { path: 'fornecedores/edit', component: FornecedorFormComponent, resolve: { fornecedor: fornecedorResolver } },
 ];
