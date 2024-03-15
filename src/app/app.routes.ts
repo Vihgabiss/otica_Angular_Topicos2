@@ -12,4 +12,9 @@ export const routes: Routes = [
     { path: 'fornecedores', component: FornecedorListComponent, title: 'Lista de Fornecedor' },
     { path: 'fornecedores/new', component: FornecedorFormComponent, title: 'Novo Fornecedor' },
     { path: 'fornecedores/edit', component: FornecedorFormComponent, resolve: { fornecedor: fornecedorResolver } },
+    { path: 'estados_cidades', component: TabelaCidadeEstadoComponent, title: 'Lista de Cidade e Estado'},
+    { path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'}
+  //  { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
+   // { path: 'cidades', component: CidadeListComponent, title: 'Lista de Cidades'},
+
 ];
