@@ -1,0 +1,58 @@
+<p>fornecedor-list works!</p>
+<mat-toolbar color="#B26EB4">
+  <div class="flex-container">
+    <mat-icon>account_circle</mat-icon>
+    <span class="toolbar-username">Olá, Fulano de Tal</span>
+    <div class="logo-container">
+      <img src="src\app\images\image-logo.png" alt="Ótica Ana Gabriela" />
+    </div>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<table mat-table [dataSource]="fornecedores" class="mat-elevation-z8">
+  <!-- Empresa Column -->
+  <ng-container matColumnDef="empresa">
+    <th mat-header-cell *matHeaderCellDef>EMPRESA</th>
+    <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+  </ng-container>
+
+  <!-- Marca Column -->
+  <ng-container matColumnDef="marca">
+    <th mat-header-cell *matHeaderCellDef>MARCA</th>
+    <td mat-cell *matCellDef="let element">{{ element.marca }}</td>
+  </ng-container>
+
+  <!-- CNPJ Column -->
+  <ng-container matColumnDef="cnpj">
+    <th mat-header-cell *matHeaderCellDef>CNPJ</th>
+    <td mat-cell *matCellDef="let element">{{ element.cnpj }}</td>
+  </ng-container>
+
+  <!-- Acao Column -->
+  <ng-container matColumnDef="acao">
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button routerLink="/fornecedor/view/{{ element.nome }}">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        routerLink="/fornecedor/edit/{{ element.nome }}"
+      >
+        <mat-icon>edit_square</mat-icon>
+      </button>
+      <button mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

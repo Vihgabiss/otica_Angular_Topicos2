@@ -1,0 +1,29 @@
+.toolbar-username {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .mat-column-empresa {
+    width: 5em;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .mat-column-marca {
+    width: 100%;
+  }
+  .mat-column-cnpj {
+    text-align: center;
+    min-width: 5em;
+  }
+  .mat-column-acao {
+    text-align: center;
+    min-width: 10em;
+  }
+  
