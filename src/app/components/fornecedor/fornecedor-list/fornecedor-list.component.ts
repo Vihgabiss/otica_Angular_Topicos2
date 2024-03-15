@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { Fornecedor } from '../../../models/fornecedor.model';
 import { FornecedorService } from '../../../services/fornecedor.service';
+
 @Component({
   selector: 'app-fornecedor-list',
   standalone: true,
@@ -29,4 +30,20 @@ export class FornecedorListComponent implements OnInit {
     })
   }
 
+  // delete() {
+  //   if (this.formGroup.valid) {
+  //     const fornecedor = this.formGroup.value;
+  //     if (estado.id != null) {
+  //       this.estadoService.delete(estado).subscribe({
+  //         next: () => {
+  //           this.router.navigateByUrl('/estados');
+  //         },
+  //         error: (err) => {
+  //           console.log('Erro ao Excluir' + JSON.stringify(err));
+  //         }
+  //       });
+  //     }
+  //   }
+  //   }
+    
 }
