@@ -8,8 +8,8 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { EstadoService } from '../../../services/estado.service';
-import { Estado } from '../../../models/estado.model';
+import { EstadoService } from '../../services/estado.service';
+import { Estado } from '../../models/estado.model';
 
 
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
@@ -26,8 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [provideNativeDateAdapter()],
   imports: [NgIf, MatToolbarModule, MatButtonModule, RouterModule, MatExpansionModule, MatFormFieldModule, MatDatepickerModule, MatInputModule, MatAccordion, MatIconModule,
     FormsModule, ReactiveFormsModule],
-  templateUrl: './estado-form.component.html',
-  styleUrl: './estado-form.component.css'
+  templateUrl: './estado-cidade-form.component.html',
+  styleUrl: './estado-cidade-form.component.css'
 })
 export class EstadoFormComponent {
   @ViewChild(MatAccordion) accordion: MatAccordion;
