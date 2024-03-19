@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#toolbar-username {
+  color: white;
+}
+
+#example-spacer {
+  flex: 1 1 auto;
+}
+
+#flex-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  background-color: #D9D9D9;
+  width: 100%;
+  margin-top: 100px;
+}
+
+button {
+  margin-left: 8px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+mat-toolbar {
+  background-color: rgba(178, 110, 180, 100%);
+}
+
+mat-icon {
+  color: #ffffff;
+}

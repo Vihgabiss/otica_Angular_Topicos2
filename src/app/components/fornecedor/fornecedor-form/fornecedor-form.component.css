@@ -1,0 +1,113 @@
+/* Reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Toolbar */
+
+mat-toolbar {
+    background-color: rgba(178, 110, 180, 100%);
+}
+
+#toolbar-username {
+    color: white;
+}
+
+#example-spacer {
+    flex: 1 1 auto;
+}
+
+/* Título da página */
+
+#title-page {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Container do formulário */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card do formulário */
+
+mat-card {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Conteúdo do card */
+
+mat-card-content {
+    padding: 20px;
+}
+
+/* Campos do formulário */
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Ações do formulário */
+
+mat-card-actions {
+    text-align: right;
+}
+
+/* Botão Salvar */
+
+button[mat-raised-button] {
+    background-color: rgba(178, 110, 180, 100%);
+    color: white;
+}
+
+/* Layout de duas colunas e três linhas */
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+mat-form-field:nth-of-type(1),
+mat-form-field:nth-of-type(2) {
+    flex: 1 0 50%;
+}
+
+mat-form-field:nth-of-type(3),
+mat-form-field:nth-of-type(4),
+mat-form-field:nth-of-type(5) {
+    flex: 1 0 100%;
+}
+
+/* Media queries para responsividade */
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    mat-form-field {
+        flex: 1 0 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+      flex-direction: column;
+    }
+  
+    mat-form-field {
+      flex: 1 0 33%;
+    }
+  }
