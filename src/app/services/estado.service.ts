@@ -25,7 +25,7 @@ export class EstadoService{
 
     insert(estado: Estado): Observable<Estado>{
         return this.httpClient.post<Estado>(this.baseUrl, estado);
-    }
+    } 
 
     update(estado: Estado): Observable<Estado>{
         return this.httpClient.put<Estado>(`${this.baseUrl}/${estado.id}`, estado);
