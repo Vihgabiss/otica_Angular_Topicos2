@@ -32,6 +32,6 @@ export class CidadeService{
     }
 
     delete(cidade: Cidade): Observable<any>{
-        return this.httpClient.delete<any>(`${this.baseUrl}/${cidade.id}`);
+        return this.httpClient.delete<any>(`${'http://localhost:8080/estado/deleta-cidade'}/${cidade.id}`);
     }
 }
