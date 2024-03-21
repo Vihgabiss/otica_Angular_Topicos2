@@ -7,7 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -17,14 +18,14 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogC
   standalone: true,
   imports: [NgFor, MatTableModule, MatToolbarModule, MatIconModule
     , MatButtonModule, RouterModule],
-  templateUrl: './estado-list.component.html', 
+  templateUrl: './estado-list.component.html',
   styleUrl: './estado-list.component.css'
 })
 export class EstadoListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'sigla', 'acao'];
   estados: Estado[] = [];
   estadoToDelete: Estado | null = null;
-  estadoToDeleteName: string ='';
+  estadoToDeleteName: string = '';
   showConfirmationModal = false;
 
   constructor(private estadoService: EstadoService, public dialog: MatDialog) { }
@@ -35,7 +36,7 @@ export class EstadoListComponent implements OnInit {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
-      data: {component : this}
+      data: { component: this }
     });
   }
 
@@ -63,11 +64,17 @@ export class EstadoListComponent implements OnInit {
 
   confirmDeleteEstado(): void {
     if (this.estadoToDelete) {
-      this.estadoService.delete(this.estadoToDelete).subscribe(() => {
-        this.fetchEstados();
+      this.estadoService.delete(this.estadoToDelete).subscribe({
+        next: () => {
+          this.fetchEstados();
+          this.closeConfirmationModal();
+        },
+        error: (error) => {
+          console.log('Erro:', error);
+          alert('Esse estado está sendo utilizado no cadastro de uma cidade, portanto não é possível excluir.');
+        },
       });
     }
-    this.closeConfirmationModal();
   }
 }
 
@@ -79,15 +86,15 @@ export class EstadoListComponent implements OnInit {
 })
 export class DialogAnimationsExampleDialog {
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: { component: EstadoListComponent }) {}
+    @Inject(MAT_DIALOG_DATA) public data: { component: EstadoListComponent }) { }
 
-    confirmDeleteEstado(): void {
-      this.data.component.confirmDeleteEstado();
-    }
-  
-    closeConfirmationModal(): void {
-      this.data.component.closeConfirmationModal();
-    }
+  confirmDeleteEstado(): void {
+    this.data.component.confirmDeleteEstado();
+  }
 
-    estadoToDeleteName = this.data.component.estadoToDeleteName;
+  closeConfirmationModal(): void {
+    this.data.component.closeConfirmationModal();
+  }
+
+  estadoToDeleteName = this.data.component.estadoToDeleteName;
 }

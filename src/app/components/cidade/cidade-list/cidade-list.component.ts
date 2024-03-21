@@ -63,11 +63,17 @@ export class CidadeListComponent implements OnInit {
 
   confirmDeleteCidade(): void {
     if (this.cidadeToDelete) {
-      this.cidadeService.delete(this.cidadeToDelete).subscribe(() => {
-        this.fetchCidades();
+      this.cidadeService.delete(this.cidadeToDelete).subscribe({
+        next: () => {
+          this.fetchCidades();
+          this.closeConfirmationModal();
+        },
+        error: (error) => {
+          console.log('Erro:', error);
+          alert('Não é possível excluir a cidade, pois está sendo utilizada em um cadastro de endereço.');
+        },
       });
     }
-    this.closeConfirmationModal();
   }
 
 }
