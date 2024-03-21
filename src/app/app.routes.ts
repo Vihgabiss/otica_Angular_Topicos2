@@ -5,6 +5,8 @@ import { fornecedorResolver } from './components/fornecedor/resolver/fornecedor.
 import { TabelaCidadeEstadoComponent } from './components/tabela-cidade-estado/tabela-cidade-estado.component';
 import { CidadeFormComponent } from './components/cidade/cidade-form/cidade-form.component';
 import { EstadoCidadeFormComponent } from './components/estado-cidade-form/estado-cidade-form.component';
+import { EstadoFormComponent } from './components/estado/estado-form/estado-form.component';
+import { estadoResolver } from './components/estado/resolver/estado.resolver';
 
 export const routes: Routes = [
   {
@@ -14,8 +16,7 @@ export const routes: Routes = [
   },
   { path: 'estados/new', component: EstadoCidadeFormComponent, title: 'Novo Estado' },
   { path: 'cidades', component: CidadeFormComponent, title: 'Nova Cidade' },
-  //  { path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
-  // { path: 'cidades', component: CidadeListComponent, title: 'Lista de Cidades'},
+  { path : 'estados_cidades/edit/:id', component: EstadoFormComponent, resolve: {estado: estadoResolver}}, 
 
   {
     path: 'fornecedores',

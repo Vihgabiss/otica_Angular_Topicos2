@@ -66,7 +66,7 @@ export class EstadoFormComponent {
       } else {
         this.estadoService.update(estado).subscribe({
           next: (estadoAlterado) => {
-            this.router.navigateByUrl('/estados');
+            this.router.navigateByUrl('/estados_cidades');
           },
           error: (err) => {
             console.log('Erro ao Editar' + JSON.stringify(err));
