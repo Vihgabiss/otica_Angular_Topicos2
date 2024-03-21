@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmar</h2>
+<mat-dialog-content>
+  <p>Deseja realmente excluir o estado "{{ estadoToDeleteName }}"?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn" (click)="confirmDeleteEstado()">Confirmar</button>
+  <button mat-raised-button mat-dialog-close (click)="closeConfirmationModal()">Cancelar</button>
+</mat-dialog-actions>
