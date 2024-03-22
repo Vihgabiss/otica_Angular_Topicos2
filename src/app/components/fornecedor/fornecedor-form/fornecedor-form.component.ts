@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Fornecedor } from '../../../models/fornecedor.model';
 import { FornecedorService } from '../../../services/fornecedor.service';
@@ -20,18 +21,23 @@ import { FornecedorService } from '../../../services/fornecedor.service';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule, ReactiveFormsModule, NgIf
+    MatButtonModule, ReactiveFormsModule, NgIf,
   ],
   templateUrl: './fornecedor-form.component.html',
   styleUrl: './fornecedor-form.component.css'
 })
 export class FornecedorFormComponent {
   formGroup: FormGroup;
+  imageUrl: SafeUrl;
 
   constructor(private formBuilder: FormBuilder,
     private fornecedorService: FornecedorService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private sanitazer: DomSanitizer) {
+
+    const imagePath = 'assets/images/image_logo.png';
+    this.imageUrl = this.sanitazer.bypassSecurityTrustUrl(imagePath);
 
     const fornecedor: Fornecedor = activatedRoute.snapshot.data['fornecedor'];
 

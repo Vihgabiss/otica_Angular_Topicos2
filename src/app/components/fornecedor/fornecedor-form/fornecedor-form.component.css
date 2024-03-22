@@ -1,14 +1,6 @@
-/* Reset CSS */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Toolbar */
 
-mat-toolbar {
+.mat-toolbar {
     background-color: rgba(178, 110, 180, 100%);
 }
 
@@ -16,17 +8,36 @@ mat-toolbar {
     color: white;
 }
 
-#example-spacer {
+#account_circle{
+    color: #fff;
+}
+.example-spacer {
     flex: 1 1 auto;
 }
 
+.flex-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+img{
+    width: 500px;
+    height: 80px;
+}
+
+#menu-icon{
+    color: #272525;
+}
 /* Título da página */
 
 #title-page {
-    text-align: center;
-    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 32px;
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Container do formulário */
@@ -68,7 +79,7 @@ mat-card-actions {
 /* Botão Salvar */
 
 button[mat-raised-button] {
-    background-color: rgba(178, 110, 180, 100%);
+    background-color: #9DB97A;
     color: white;
 }
 
@@ -104,10 +115,10 @@ mat-form-field:nth-of-type(5) {
 
 @media (max-width: 768px) {
     .form-container {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
+
     mat-form-field {
-      flex: 1 0 33%;
+        flex: 1 0 33%;
     }
-  }
+}

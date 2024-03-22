@@ -45,5 +45,5 @@ export class FornecedorListComponent implements OnInit {
   //     }
   //   }
   //   }
-    
+
 }

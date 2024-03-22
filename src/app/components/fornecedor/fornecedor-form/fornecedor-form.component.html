@@ -1,13 +1,16 @@
-<mat-toolbar color="primary">
-  <div id="flex-container">
-    <mat-icon>account_circle</mat-icon>
-    <span id="toolbar-username">Olá, Fulano de Tal</span>
-    <span id="example-spacer"> 
-
-    </span>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+  </style>
+<!--Menu da página-->
+<mat-toolbar class="mat-toolbar" color="primary">
+  <div class="flex-container">
+    <mat-icon id="account_circle">account_circle</mat-icon>
+    <span>Olá, pessoa logada</span>
+    <span class="example-spacer"></span>
+    <img [src]="imageUrl" alt="Minha Imagem"/>
     <button
       mat-icon-button
-      class="example-icon"
+      id="menu-icon"
       aria-label="Example icon-button with menu icon"
     >
       <mat-icon>menu</mat-icon>
@@ -16,7 +19,7 @@
 </mat-toolbar>
 
 <div id="title-page">
-  <span>FORNECEDOR</span>
+  <span> CADASTRAR FORNECEDOR</span>
 </div>
 
 <div class="form-container">
