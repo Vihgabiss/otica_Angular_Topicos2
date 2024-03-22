@@ -9,17 +9,14 @@ import { estadoResolver } from './components/estado/resolver/estado.resolver';
 import { EstadoEditFormComponent } from './components/estado/estado-edit-form/estado-edit-form.component';
 import { CidadeEditFormComponent } from './components/cidade/cidade-edit-form/cidade-edit-form.component';
 import { cidadeResolver } from './components/cidade/resolver/cidade.resolver';
+import { UsuarioListComponent } from './components/usuario/usuario-list/usuario-list.component';
 
 export const routes: Routes = [
-  {
-    path: 'estados_cidades',
-    component: TabelaCidadeEstadoComponent,
-    title: 'Lista de Cidade e Estado',
-  },
-  { path: 'estados/new', component: EstadoCidadeFormComponent, title: 'Novo Estado' },
-  { path: 'cidades', component: CidadeFormComponent, title: 'Nova Cidade' },
-  { path : 'estados_cidades/editestado/:id', component: EstadoEditFormComponent, resolve: {estado: estadoResolver}, title: 'Editar Estado'}, 
-  { path : 'estados_cidades/editcidade/:id', component: CidadeEditFormComponent, resolve: {cidade: cidadeResolver}, title: 'Editar Cidade'}, 
+  { path: 'estados_cidades', component: TabelaCidadeEstadoComponent, title: 'Lista de Cidade e Estado'},
+  { path: 'estados/new', component: EstadoCidadeFormComponent, title: 'Novo Estado/Cidade' },
+  { path: 'estados_cidades/editestado/:id', component: EstadoEditFormComponent, resolve: {estado: estadoResolver}, title: 'Editar Estado'}, 
+  { path: 'estados_cidades/editcidade/:id', component: CidadeEditFormComponent, resolve: {cidade: cidadeResolver}, title: 'Editar Cidade'}, 
+  { path: 'usuarios', component: UsuarioListComponent, title: 'Lista de Usuarios'},
 
   {
     path: 'fornecedores',
