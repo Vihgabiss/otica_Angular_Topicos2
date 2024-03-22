@@ -1,0 +1,77 @@
+<!--Menu da página-->
+<mat-toolbar class="mat-toolbar" color="primary">
+  <div class="flex-container">
+    <mat-icon>account_circle</mat-icon>
+    <span>Olá, pessoa logada</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="full-form">
+  <div class="inputs-buttons">
+    <p>Editar Estado</p>
+ <!--Formulário para cadastro de estado-->
+ <form [formGroup]="formGroup">
+  <!--Campo nome-->
+  <mat-form-field appearance="fill" class="full-width-input">
+    <mat-label>Nome</mat-label>
+    <input
+      matInput
+      type="text"
+      title="Escreva o nome do estado"
+      formControlName="nome"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('nome') &&
+        formGroup.get('nome')?.invalid &&
+        formGroup.get('nome')?.touched
+      "
+    >
+      O nome é obrigatório.
+    </mat-error>
+  </mat-form-field>
+  <!--Campo sigla-->
+  <mat-form-field appearance="fill" class="full-width-input">
+    <mat-label>Sigla</mat-label>
+    <input
+      matInput
+      type="text"
+      title="Escreva a sigla do estado"
+      formControlName="sigla"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('sigla') &&
+        formGroup.get('sigla')?.invalid &&
+        formGroup.get('sigla')?.touched
+      "
+    >
+      A sigla é obrigatória.
+    </mat-error>
+  </mat-form-field>
+</form>
+<div class="button-group">
+<!--Botão salvar-->
+<button
+  mat-raised-button
+  title="Botão salvar"
+  color="primary"
+  (click)="salvar()"
+  [disabled]="formGroup.invalid"
+>
+  Salvar
+</button>
+<!--Botão cancelar-->
+<button mat-raised-button routerLink="/estados_cidades">Cancelar</button>
+</div>
+  </div>
+</div>
+

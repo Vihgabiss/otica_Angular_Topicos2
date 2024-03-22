@@ -1,0 +1,34 @@
+.example-spacer {
+  flex : 1  1 auto;
+}
+
+.flex-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.expansion-panel{
+  margin-top: 2px;
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+button{
+  margin-left: 8px;
+}
+
+mat-toolbar{
+  background-color: rgba(178, 110, 180, 100%);
+}

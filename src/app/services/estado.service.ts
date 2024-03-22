@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, catchError, throwError } from "rxjs";
 import { Estado } from "../models/estado.model";
 
 @Injectable({
@@ -25,7 +25,7 @@ export class EstadoService{
 
     insert(estado: Estado): Observable<Estado>{
         return this.httpClient.post<Estado>(this.baseUrl, estado);
-    }
+    } 
 
     update(estado: Estado): Observable<Estado>{
         return this.httpClient.put<Estado>(`${this.baseUrl}/${estado.id}`, estado);
