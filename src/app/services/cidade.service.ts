@@ -16,7 +16,7 @@ export class CidadeService{
     }
 
     findById(id: string): Observable<Cidade>{
-        return this.httpClient.get<Cidade>(`${this.baseUrl}/${id}`);
+        return this.httpClient.get<Cidade>(`${'http://localhost:8080/estado/search/cidade'}/${id}`);
     }
 
     insert(cidade: Cidade): Observable<Cidade>{
@@ -28,7 +28,11 @@ export class CidadeService{
     }
 
     update(cidade: Cidade): Observable<Cidade>{
-        return this.httpClient.put<Cidade>(`${this.baseUrl}/${cidade.id}`, cidade);
+        const data = {
+            nome: cidade.nome,
+            idEstado: cidade.estado.id
+        }
+        return this.httpClient.put<Cidade>(`${'http://localhost:8080/estado/atualiza-cidade'}/${cidade.id}`, data);
     }
 
     delete(cidade: Cidade): Observable<any>{

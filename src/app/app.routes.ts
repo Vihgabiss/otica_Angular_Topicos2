@@ -7,6 +7,8 @@ import { CidadeFormComponent } from './components/cidade/cidade-form/cidade-form
 import { EstadoCidadeFormComponent } from './components/estado-cidade-form/estado-cidade-form.component';
 import { estadoResolver } from './components/estado/resolver/estado.resolver';
 import { EstadoEditFormComponent } from './components/estado/estado-edit-form/estado-edit-form.component';
+import { CidadeEditFormComponent } from './components/cidade/cidade-edit-form/cidade-edit-form.component';
+import { cidadeResolver } from './components/cidade/resolver/cidade.resolver';
 
 export const routes: Routes = [
   {
@@ -16,7 +18,8 @@ export const routes: Routes = [
   },
   { path: 'estados/new', component: EstadoCidadeFormComponent, title: 'Novo Estado' },
   { path: 'cidades', component: CidadeFormComponent, title: 'Nova Cidade' },
-  { path : 'estados_cidades/edit/:id', component: EstadoEditFormComponent, resolve: {estado: estadoResolver}, title: 'Editar Estado'}, 
+  { path : 'estados_cidades/editestado/:id', component: EstadoEditFormComponent, resolve: {estado: estadoResolver}, title: 'Editar Estado'}, 
+  { path : 'estados_cidades/editcidade/:id', component: CidadeEditFormComponent, resolve: {cidade: cidadeResolver}, title: 'Editar Cidade'}, 
 
   {
     path: 'fornecedores',

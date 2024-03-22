@@ -31,11 +31,12 @@
           <button
             mat-icon-button
             color="primary"
-            routerLink="/estados/edit/{{ element.id }}"
+            routerLink="/estados_cidades/editcidade/{{ element.id }}"
           >
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="openDialog('200ms', '200ms', element)">
+          <button mat-icon-button color="warn"
+          (click)="openDialog('200ms', '200ms', element)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

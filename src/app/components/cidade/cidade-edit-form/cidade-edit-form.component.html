@@ -1,0 +1,66 @@
+<mat-toolbar class="mat-toolbar" color="primary">
+  <div class="flex-container">
+    <mat-icon>account_circle</mat-icon>
+    <span>Olá, pessoa logada</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="full-form">
+  <div class="inputs-buttons">
+      <!--Formulário para cadastro de cidade-->
+      <form [formGroup]="formGroup">
+        <!--Campo nome-->
+        <mat-form-field appearance="fill" class="full-width-input">
+          <mat-label>Nome</mat-label>
+          <input
+            matInput
+            type="text"
+            title="Escreva o nome do estado"
+            formControlName="nome"
+          />
+          <mat-error
+            *ngIf="
+              formGroup.get('nome') &&
+              formGroup.get('nome')?.invalid &&
+              formGroup.get('nome')?.touched
+            "
+          >
+            O nome é obrigatório.
+          </mat-error>
+        </mat-form-field>
+        <!--Select Estado-->
+        <mat-form-field appearance="fill" class="full-width-input">
+          <mat-label>Estado</mat-label>
+         <mat-select formControlName="estado">
+            @for (estado of estados; track estado.id) {
+              <mat-option [value]="estado">
+                {{estado.nome}}
+              </mat-option>
+            }
+         </mat-select>
+        </mat-form-field>
+      </form>
+      <!--Botão salvar-->
+      <button
+        mat-raised-button
+        title="Botão salvar"
+        color="primary"
+        (click)="salvar()"
+        [disabled]="formGroup.invalid"
+      >
+        Salvar
+      </button>
+      <!--Botão cancelar-->
+      <button mat-raised-button routerLink="/estados_cidades">Cancelar</button>
+  </div>
+</div>
+  
+
