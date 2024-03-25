@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError, throwError } from "rxjs";
+import { Observable } from "rxjs";
 import { Endereco } from "../models/endereco.model";
 
 
@@ -20,12 +20,17 @@ export class EnderecoService{
         return this.httpClient.get<Endereco>(`${this.baseUrl}/${id}`);
     }
 
-    findBySigla(sigla: string): Observable<Endereco>{
-        return this.httpClient.get<Endereco>(`${this.baseUrl}/${sigla}`);
-    } 
-
     insert(endereco: Endereco): Observable<Endereco>{
-        return this.httpClient.post<Endereco>(this.baseUrl, endereco);
+        const data = {
+            cep: endereco.cep,
+            bairro: endereco.bairro,
+            rua: endereco.rua,
+            numero: endereco.numero,
+            complemento: endereco.complemento,
+            idUsuario: endereco.idUsuario,
+            idCidade: endereco.cidade.id  
+        }
+        return this.httpClient.post<Endereco>('http://localhost:8080/endereco/insere-endereco', data);
     } 
 
     update(endereco: Endereco): Observable<Endereco>{

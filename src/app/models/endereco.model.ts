@@ -7,6 +7,7 @@ export class Endereco{
     rua!: string;
     numero!: number;
     complemento!: string;
+    idUsuario!: number;
     cidade!: Cidade;
     
 }

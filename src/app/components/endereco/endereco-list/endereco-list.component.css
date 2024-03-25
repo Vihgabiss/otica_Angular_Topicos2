@@ -1,0 +1,30 @@
+.example-spacer {
+    flex : 1  1 auto;
+  }
+
+  .table {
+    width: 100%;
+    margin-top: 200px;
+  }
+  
+  .flex-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .novo_endereco_button{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+     
+    }
+  
+  .caption_enderecos{
+    font-size: 20px;
+    padding: 30px;
+  }
+
+  mat-toolbar{
+    background-color: rgba(178, 110, 180, 100%);
+  }

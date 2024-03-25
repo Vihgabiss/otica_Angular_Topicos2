@@ -20,9 +20,6 @@ export class UsuarioService{
         return this.httpClient.get<Usuario>(`${this.baseUrl}/${id}`);
     }
 
-    findBySigla(sigla: string): Observable<Usuario>{
-        return this.httpClient.get<Usuario>(`${this.baseUrl}/${sigla}`);
-    } 
 
     insert(usuario: Usuario): Observable<Usuario>{
         return this.httpClient.post<Usuario>(this.baseUrl, usuario);

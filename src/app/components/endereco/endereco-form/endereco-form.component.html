@@ -1,0 +1,163 @@
+<mat-toolbar class="mat-toolbar" color="primary">
+  <div class="flex-container">
+    <mat-icon>account_circle</mat-icon>
+    <span>Olá, pessoa logada</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="full-form">
+  <div class="inputs-buttons">
+    <p>Editar Cidade</p>
+    <!--Formulário para cadastro de endereço-->
+    <form [formGroup]="formGroup">
+      <div class="inputs">
+         <!--Campo CEP-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>CEP</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Escreva o cep do endereço"
+          formControlName="cep"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('cep') &&
+            formGroup.get('cep')?.invalid &&
+            formGroup.get('cep')?.touched
+          "
+        >
+          O cep é obrigatório.
+        </mat-error>
+      </mat-form-field>
+      <!--Campo Bairro-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>Bairro</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Digite o bairro"
+          formControlName="bairro"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('bairro') &&
+            formGroup.get('bairro')?.invalid &&
+            formGroup.get('bairro')?.touched
+          "
+        >
+          O bairro é obrigatório.
+        </mat-error>
+      </mat-form-field>
+      <!--Campo Rua-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>Rua</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Digite a rua/alameda "
+          formControlName="rua"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('rua') &&
+            formGroup.get('rua')?.invalid &&
+            formGroup.get('rua')?.touched
+          "
+        >
+          A rua é obrigatória.
+        </mat-error>
+      </mat-form-field>
+      <!--Campo Número-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>Número</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Digite o número/lote"
+          formControlName="numero"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('numero') &&
+            formGroup.get('numero')?.invalid &&
+            formGroup.get('numero')?.touched
+          "
+        >
+          O número é obrigatório.
+        </mat-error>
+      </mat-form-field>
+      <!--Campo Complemento-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>Complemento</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Escreva o complemento"
+          formControlName="complemento"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('complemento') &&
+            formGroup.get('complemento')?.invalid &&
+            formGroup.get('complemento')?.touched
+          "
+        >
+          O complemento é obrigatório.
+        </mat-error>
+      </mat-form-field>
+      <!--Campo Usuario-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>IdUsuario</mat-label>
+        <input
+          matInput
+          type="text"
+          title="Digite o id do usuario deste endereço"
+          formControlName="idUsuario"
+        />
+        <mat-error
+          *ngIf="
+            formGroup.get('idUsuario') &&
+            formGroup.get('idUsuario')?.invalid &&
+            formGroup.get('idUsuario')?.touched
+          "
+        >
+          O id é obrigatório.
+        </mat-error>
+      </mat-form-field>
+      <!--Select Cidade-->
+      <mat-form-field appearance="fill" class="full-width-input">
+        <mat-label>Cidade</mat-label>
+        <mat-select formControlName="cidade">
+          @for (cidade of cidades; track cidade.id) {
+          <mat-option [value]="cidade">
+            {{ cidade.nome }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      </div>
+
+    </form>
+    <!--Botão salvar-->
+    <button
+      mat-raised-button
+      title="Botão salvar"
+      color="primary"
+      (click)="salvar()"
+      [disabled]="formGroup.invalid"
+    >
+      Salvar
+    </button>
+    <!--Botão cancelar-->
+    <button mat-raised-button routerLink="/enderecos">Cancelar</button>
+  </div>
+</div>
