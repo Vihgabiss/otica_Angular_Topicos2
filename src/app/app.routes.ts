@@ -11,6 +11,8 @@ import { cidadeResolver } from './components/cidade/resolver/cidade.resolver';
 import { UsuarioListComponent } from './components/usuario/usuario-list/usuario-list.component';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { EnderecoFormComponent } from './components/endereco/endereco-form/endereco-form.component';
+import { EnderecoVisualizaFormComponent } from './components/endereco/endereco-visualiza-form/endereco-visualiza-form.component';
+import { enderecoResolver } from './components/endereco/resolver/endereco.resolver';
 
 export const routes: Routes = [
   { path: 'estados_cidades', component: TabelaCidadeEstadoComponent, title: 'Lista de Cidade e Estado'},
@@ -20,6 +22,7 @@ export const routes: Routes = [
   { path: 'usuarios', component: UsuarioListComponent, title: 'Lista de Usuarios'},
   { path: 'enderecos', component: EnderecoListComponent, title: 'Lista de Endereços'},
   { path: 'enderecos/new', component: EnderecoFormComponent, title: 'Novo Endereço' },
+  { path: 'enderecos/visualiza/:id', component: EnderecoVisualizaFormComponent,  resolve: {endereco: enderecoResolver}, title: 'Ver Endereço' },
 
   {
     path: 'fornecedores',

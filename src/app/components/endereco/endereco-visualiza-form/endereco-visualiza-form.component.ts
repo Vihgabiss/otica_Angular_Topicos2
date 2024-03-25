@@ -21,7 +21,7 @@ import { Endereco } from '../../../models/endereco.model';
 import { EnderecoService } from '../../../services/endereco.service';
 
 @Component({
-  selector: 'app-endereco-form',
+  selector: 'app-endereco-visualiza-form',
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [
@@ -39,10 +39,10 @@ import { EnderecoService } from '../../../services/endereco.service';
     ReactiveFormsModule,
     MatSelectModule
   ],
-  templateUrl: './endereco-form.component.html',
-  styleUrl: './endereco-form.component.css',
+  templateUrl: './endereco-visualiza-form.component.html',
+  styleUrl: './endereco-visualiza-form.component.css',
 })
-export class EnderecoFormComponent {
+export class EnderecoVisualizaFormComponent implements OnInit {
 
   formGroup: FormGroup;
   cidades: Cidade[] = [];
@@ -76,7 +76,7 @@ export class EnderecoFormComponent {
   initializeForm() {
     const endereco: Endereco = this.activatedRoute.snapshot.data['endereco'];
 
-    //selecionando o estado
+    //selecionando a cidade
     const cidade = this.cidades.find(
       (cidade) => cidade.id === (endereco?.cidade?.id || null)
     );
@@ -91,30 +91,7 @@ export class EnderecoFormComponent {
       idUsuario: [(endereco && endereco.idUsuario) ? endereco.idUsuario : '', Validators.required],
       cidade: [cidade]
     });
-  }
 
-  salvar() {
-    if (this.formGroup.valid) {
-      const endereco = this.formGroup.value;
-      if (endereco.id == null) {
-        this.enderecoService.insert(endereco).subscribe({
-          next: (enderecoCadastrado) => {
-            this.router.navigateByUrl('/enderecos');
-          },
-          error: (err) => {
-            console.log('Erro ao Incluir' + JSON.stringify(err));
-          },
-        });
-      } else {
-        this.enderecoService.update(endereco).subscribe({
-          next: (enderecoAlterado) => {
-            this.router.navigateByUrl('/enderecos');
-          },
-          error: (err) => {
-            console.log('Erro ao Editar' + JSON.stringify(err));
-          },
-        });
-      }
-    }
+    this.formGroup.disable();
   }
 }

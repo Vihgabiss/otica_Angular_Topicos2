@@ -63,7 +63,8 @@
           <td mat-cell *matCellDef="let element">
             <button
             mat-icon-button
-            style="color: rgb(85, 85, 85);">
+            style="color: rgb(85, 85, 85);"
+            routerLink="/enderecos/visualiza/{{ element.id }}">
             <mat-icon>visibility</mat-icon>
           </button>  
             <button
