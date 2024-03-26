@@ -88,7 +88,7 @@ export class EnderecoFormComponent {
       rua: [(endereco && endereco.rua) ? endereco.rua : '', Validators.required],
       numero: [(endereco && endereco.numero) ? endereco.numero : '', Validators.required],
       complemento: [(endereco && endereco.complemento) ? endereco.complemento : '', Validators.required],
-      idUsuario: [(endereco && endereco.idUsuario) ? endereco.idUsuario : '', Validators.required],
+      idUsuario: [{ value: (endereco && endereco.idUsuario) ? endereco.idUsuario : '', disabled: endereco && endereco.idUsuario}, Validators.required],
       cidade: [cidade]
     });
   }

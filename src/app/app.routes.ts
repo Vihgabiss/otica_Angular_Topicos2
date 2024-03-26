@@ -23,6 +23,7 @@ export const routes: Routes = [
   { path: 'enderecos', component: EnderecoListComponent, title: 'Lista de Endereços'},
   { path: 'enderecos/new', component: EnderecoFormComponent, title: 'Novo Endereço' },
   { path: 'enderecos/visualiza/:id', component: EnderecoVisualizaFormComponent,  resolve: {endereco: enderecoResolver}, title: 'Ver Endereço' },
+  { path: 'enderecos/editendereco/:id', component: EnderecoFormComponent, resolve: {endereco: enderecoResolver}, title: 'Editar Endereço'}, 
 
   {
     path: 'fornecedores',

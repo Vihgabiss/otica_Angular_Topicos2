@@ -34,7 +34,16 @@ export class EnderecoService{
     } 
 
     update(endereco: Endereco): Observable<Endereco>{
-        return this.httpClient.put<Endereco>(`${this.baseUrl}/${endereco.id}`, endereco);
+        const data = {
+            cep: endereco.cep,
+            bairro: endereco.bairro,
+            rua: endereco.rua,
+            numero: endereco.numero,
+            complemento: endereco.complemento,
+            idUsuario: endereco.idUsuario,
+            idCidade: endereco.cidade.id  
+        }
+        return this.httpClient.put<Endereco>(`${'http://localhost:8080/endereco/atualiza-endereco'}/${endereco.id}`, data);
     }
 
     delete(endereco: Endereco): Observable<any>{
