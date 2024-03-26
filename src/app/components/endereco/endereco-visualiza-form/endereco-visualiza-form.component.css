@@ -40,3 +40,20 @@ mat-toolbar{
   background-color: rgba(178, 110, 180, 100%);
 }
 
+mat-label{
+  color: rgba(0, 0, 0, 0.911);
+}
+
+#campo-input{
+  color: rgba(0, 0, 0, 0.911);
+}
+
+mat-select{
+  color: rgb(66, 66, 66);
+}
+
+
+
+
+
+

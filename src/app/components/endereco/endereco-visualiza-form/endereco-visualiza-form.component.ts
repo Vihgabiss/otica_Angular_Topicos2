@@ -49,9 +49,7 @@ export class EnderecoVisualizaFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private enderecoService: EnderecoService,
     private cidadeService: CidadeService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
 
@@ -83,15 +81,13 @@ export class EnderecoVisualizaFormComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       id: [(endereco && endereco.id) ? endereco.id : null],
-      cep: [(endereco && endereco.cep) ? endereco.cep : '', Validators.required],
-      bairro: [(endereco && endereco.bairro) ? endereco.bairro : '', Validators.required],
-      rua: [(endereco && endereco.rua) ? endereco.rua : '', Validators.required],
-      numero: [(endereco && endereco.numero) ? endereco.numero : '', Validators.required],
-      complemento: [(endereco && endereco.complemento) ? endereco.complemento : '', Validators.required],
-      idUsuario: [(endereco && endereco.idUsuario) ? endereco.idUsuario : '', Validators.required],
-      cidade: [cidade]
+      cep: [{value: (endereco && endereco.cep) ? endereco.cep : '', disabled: true}],
+      bairro: [{value: (endereco && endereco.bairro) ? endereco.bairro : '', disabled: true}],
+      rua: [{value: (endereco && endereco.rua) ? endereco.rua : '', disabled: true}],
+      numero: [{value: (endereco && endereco.numero) ? endereco.numero : '', disabled: true}],
+      complemento: [{value: (endereco && endereco.complemento) ? endereco.complemento : '', disabled: true}],
+      idUsuario: [{value: (endereco && endereco.idUsuario) ? endereco.idUsuario : '', disabled: true}],
+      cidade: [{value: cidade, disabled: true}]
     });
-
-    this.formGroup.disable();
   }
 }
